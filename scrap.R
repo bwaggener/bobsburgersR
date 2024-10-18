@@ -281,18 +281,7 @@ ggplot(imdb_wikipedia_data, aes(x = wikipedia_directed_by, fill = wikipedia_writ
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+s
 
 
 
