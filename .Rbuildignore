@@ -1,0 +1,7 @@
+^renv$
+^renv\.lock$
+^bobsburgersR\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^LICENSE\.md$
+^README\.Rmd$
