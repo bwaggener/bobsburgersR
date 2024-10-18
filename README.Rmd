@@ -100,7 +100,7 @@ ggplot(imdb_wikipedia_data, aes(x = as.factor(season), y = rating)) +
 
 The following heatmap shows the number of dialogue lines spoken in each episode across different seasons of Bob's Burgers.
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 data("transcript_data")
 head(transcript_data)
 
@@ -110,8 +110,7 @@ head(transcript_data)
 heatmap_data <- transcript_data |>
   filter(!is.na(dialogue)) |>  
   group_by(season, episode) |>
-  summarize(total_lines = n()) |> 
-  ungroup()
+  summarize(total_lines = n(), .groups = "drop") 
 
 # Heatmap: Lines Spoken by Season and Episode
 ggplot(heatmap_data, aes(x = as.factor(episode), y = as.factor(season), fill = total_lines)) +
