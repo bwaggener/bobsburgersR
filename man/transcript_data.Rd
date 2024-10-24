@@ -5,15 +5,14 @@
 \alias{transcript_data}
 \title{Transcript Data from Bob's Burgers}
 \format{
-A data frame with X rows and Y variables:
+A data frame with 181,031 rows and 7 variables:
 \describe{
-\item{x1}{Row index or unique identifier for each line of dialogue in the dataset.}
 \item{season}{The season number in which the episode is part of the Bob's Burgers TV show.}
 \item{episode}{The episode number within the specific season of Bob's Burgers.}
 \item{title}{The title of the episode in which the dialogue line appears.}
-\item{line}{The line number of the dialogue in the episode (the order in which it appears).}
+\item{line}{The line number of the dialogue (the order in which it appears).}
 \item{raw_text}{The original raw text of the dialogue, possibly including formatting or special characters.}
-\item{dialogue}{Cleaned-up version of the \code{raw_text}, containing the actual dialogue spoken by the characters in the episode.}
+\item{dialogue}{Cleaned-up version of the \code{raw_text}, containing the actual dialogue spoken by the characters.}
 }
 }
 \source{

@@ -131,9 +131,7 @@ ggplot(heatmap_data, aes(x = as.factor(episode), y = as.factor(season), fill = t
   theme_minimal()
 ```
 
-# Folder Structure
-
-# Folder Structure
+# Folder Structure 
 
 The main folders in this package include:
 

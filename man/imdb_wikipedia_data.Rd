@@ -5,20 +5,19 @@
 \alias{imdb_wikipedia_data}
 \title{IMDb Wikipedia Bob's Burgers Data}
 \format{
-A data frame with X rows and Y variables:
+A data frame with 275 rows and 12 variables:
 \describe{
-\item{x1}{Row index or unique identifier for each episode in the dataset.}
-\item{episode_overall}{The overall episode number in the entire Bob's Burgers series (starting from episode 1).}
-\item{imdb_aired_date}{The date the episode originally aired, according to IMDb. Format: YYYY-MM-DD.}
+\item{episode_overall}{The overall episode number in the entire Bob's Burgers series.}
+\item{imdb_aired_date}{The date the episode originally aired, according to IMDb.}
 \item{year}{The year the episode aired.}
-\item{season}{The season number of the episode within the Bob's Burgers TV show.}
-\item{episode}{The episode number within the specific season of the Bob's Burgers TV show.}
+\item{season}{The season number within the Bob's Burgers TV show.}
+\item{episode}{The episode number within the specific season of Bob's Burgers.}
 \item{imdb_title}{The title of the episode, as listed on IMDb.}
 \item{rating}{The IMDb user rating of the episode (on a scale from 1 to 10).}
-\item{synopsis}{A brief description or synopsis of the episode, summarizing the key plot points, according to IMDb.}
+\item{synopsis}{A brief description of the episode's plot.}
 \item{wikipedia_directed_by}{The name(s) of the director(s) of the episode, as listed on Wikipedia.}
 \item{wikipedia_written_by}{The name(s) of the writer(s) of the episode, as listed on Wikipedia.}
-\item{wikipedia_viewers}{The number of US viewers (in millions) who watched the episode when it first aired, according to Wikipedia.}
+\item{wikipedia_viewers}{The number of US viewers (in millions) who watched the episode when it first aired.}
 }
 }
 \source{
