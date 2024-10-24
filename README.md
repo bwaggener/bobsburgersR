@@ -187,19 +187,3 @@ repository](https://github.com/poncest/bobsburgersR/issues).
     Springfield - Bob’s Burgers
     scripts](https://www.springfieldspringfield.co.uk/episode_scripts.php?tv-show=bobs-burgers)
 
-# Folder Structure
-
-bobsburgersR/ ├── data-raw/ │ ├── IMDb_Bobs_Burgers_Data.csv │ ├──
-IMDb_Wikipedia_Bobs_Burgers_Data_Clean.csv │ ├──
-Transcript_Bobs_Burgers_Data.csv │ ├── Wikipedia_Bobs_Burgers_Data.csv │
-├── scraping/ │ │ ├── 01_imdb_web_scrape.R │ │ ├──
-02_wikipedia_web_scrape.R │ │ ├──
-03_springfieldspringfield_scripts_web_scrape.R │ │ ├──
-04_data_cleaning_imdb_wikipedia.R │ │ └── 04_data_cleaning_transcript.R
-├── data/ │ ├── imdb_wikipedia_data.rda │ └── transcript_data.rda ├──
-img/ │ └── bobsburgersR.png ├── man/ │ ├── imdb_wikipedia_data.Rd │ └──
-transcript_data.Rd ├── R/ │ └── data_documentation.R ├── LICENSE ├──
-LICENSE.md ├── README.md ├── README.Rmd ├── NAMESPACE ├── NEWS.md ├──
-.gitignore ├── renv/ │ ├── activate.R │ └── settings.json ├──
-bobsburgersR.Rproj └── README_files/ └── figure-gfm/ ├──
-unnamed-chunk-3-1.png └── unnamed-chunk-4-1.png
