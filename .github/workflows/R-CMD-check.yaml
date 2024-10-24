@@ -17,8 +17,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        install.packages('devtools')
-        devtools::install_deps(dependencies = TRUE)
+        Rscript -e "install.packages('devtools')"
+        Rscript -e "devtools::install_deps(dependencies = TRUE)"
 
     - name: Run R CMD check
       run: devtools::check()

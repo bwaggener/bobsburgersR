@@ -21,14 +21,8 @@ Suggests:
     polite,
     testthat
 Config/testthat/edition: 3
-Imports: 
-    tidyverse,
-    janitor,
-    scales,
-    lubridate,
-    glue,
-    rvest,
-    xml2
+Imports:
+    devtools
 Depends: 
     R (>= 2.10)
 LazyData: true
