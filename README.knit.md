@@ -4,12 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo=FALSE}
-library(bobsburgersR)
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(tidyr))
-```
+
 
 
 # bobsburgersR <img src="img/bobsburgersR.png" align="right" height="240"/>
@@ -24,7 +19,8 @@ A collection of datasets on the [Bob's Burgers](https://www.fox.com/bobs-burgers
 
 Install from GitHub:
 
-```{r, eval = FALSE}
+
+``` r
 # install.packages("devtools")
 devtools::install_github("poncest/bobsburgersR")
 ```
@@ -84,10 +80,27 @@ devtools::install_github("poncest/bobsburgersR")
 
 This plot shows the distribution of IMDb ratings for each season, with individual episode ratings represented as jittered points.
 
-```{r, warning=FALSE}
+
+``` r
 data("imdb_wikipedia_data")
 head(imdb_wikipedia_data)
+```
 
+```
+## # A tibble: 6 × 12
+##    ...1 episode_overall imdb_aired_date  year season episode imdb_title   rating
+##   <dbl>           <dbl> <date>          <dbl>  <dbl>   <dbl> <chr>         <dbl>
+## 1     1               1 2011-01-08       2011      1       1 Human Flesh     7.7
+## 2     2               2 2011-01-15       2011      1       2 Crawl Space     8.1
+## 3     3               3 2011-01-22       2011      1       3 Sacred Cow      7.5
+## 4     4               4 2011-02-12       2011      1       4 Sexy Dance …    7.4
+## 5     5               5 2011-02-19       2011      1       5 Hamburger D…    7.5
+## 6     6               6 2011-03-05       2011      1       6 Sheesh! Cab…    8.3
+## # ℹ 4 more variables: synopsis <chr>, wikipedia_directed_by <chr>,
+## #   wikipedia_written_by <chr>, wikipedia_viewers <dbl>
+```
+
+``` r
 # Box Plot with Jitter: IMDb Ratings by Season
 
 ggplot(imdb_wikipedia_data, aes(x = as.factor(season), y = rating)) +
@@ -101,14 +114,31 @@ ggplot(imdb_wikipedia_data, aes(x = as.factor(season), y = rating)) +
   theme_minimal()
 ```
 
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
 ## Heatmap: Lines Spoken by Season and Episode
 
 The following heatmap shows the number of dialogue lines spoken in each episode across different seasons of Bob's Burgers.
 
-```{r, warning=FALSE, message=FALSE}
+
+``` r
 data("transcript_data")
 head(transcript_data)
+```
 
+```
+## # A tibble: 6 × 7
+##    ...1 season episode title        line raw_text                       dialogue
+##   <dbl>  <dbl>   <dbl> <chr>       <dbl> <chr>                          <chr>   
+## 1     1      1       1 Human Flesh     1 <NA>                           <NA>    
+## 2     2      1       1 Human Flesh     2 <NA>                           <NA>    
+## 3     3      1       1 Human Flesh     3 <NA>                           <NA>    
+## 4     4      1       1 Human Flesh     4 Listen, pep talk.              Listen,…
+## 5     5      1       1 Human Flesh     5 Big day today.                 Big day…
+## 6     6      1       1 Human Flesh     6 It's our grand re-re-re-openi… It's ou…
+```
+
+``` r
 ## Heatmap: Lines Spoken by Season and Episode
 
 # Summarize number of lines per episode per season
@@ -131,54 +161,15 @@ ggplot(heatmap_data, aes(x = as.factor(episode), y = as.factor(season), fill = t
   theme_minimal()
 ```
 
-# Folder Structure
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-# Folder Structure
+# Folder
 
 The main folders in this package include:
 
-- `data-raw/`: Contains raw data files (`.csv`) and R scripts used for scraping and cleaning the data.
-- `data/`: Contains processed `.rda` files for easy access to the cleaned data.
-- `R/`: Contains R functions (`data_documentation.R`) that users can interact with.
-- `img/`: Contains images, including the package logo.
-- `man/`: Contains the documentation files (`.Rd`) for the package's data objects.
-
-Here's the detailed structure of the package:
-
-bobsburgersR/
-├── data-raw/
-│   ├── IMDb_Bobs_Burgers_Data.csv
-│   ├── IMDb_Wikipedia_Bobs_Burgers_Data_Clean.csv
-│   ├── Transcript_Bobs_Burgers_Data.csv
-│   ├── Wikipedia_Bobs_Burgers_Data.csv
-│   └── scraping/
-│       ├── 01_imdb_web_scrape.R
-│       ├── 02_wikipedia_web_scrape.R
-│       ├── 03_springfieldspringfield_scripts_web_scrape.R
-│       ├── 04_data_cleaning_imdb_wikipedia.R
-│       └── 04_data_cleaning_transcript.R
-├── data/
-│   ├── imdb_wikipedia_data.rda
-│   └── transcript_data.rda
-├── img/
-│   └── bobsburgersR.png
-├── man/
-│   ├── imdb_wikipedia_data.Rd
-│   └── transcript_data.Rd
-├── R/
-│   └── data_documentation.R
-├── LICENSE
-├── LICENSE.md
-├── README.md
-├── README.Rmd
-├── NAMESPACE
-├── NEWS.md
-├── .gitignore
-├── renv/
-│   ├── activate.R
-│   └── settings.json
-├── bobsburgersR.Rproj
-
+-   `data/`: Contains processed `.rda` files for easy access.
+-   `data-raw/`: Contains raw data and scripts used for processing the data.
+-   `R/`: Contains R functions that users can interact with.
 
 # Question/Contribute
 
@@ -189,4 +180,7 @@ If there is any data you would like to include or if you have suggestions, pleas
 1.  IMDb: [Episodes List](https://www.imdb.com/title/tt1561755/episodes/?season=1)
 2.  Wikipedia (episodes): [List of Bob's Burgers episodes](https://en.wikipedia.org/wiki/List_of_Bob%27s_Burgers_episodes#Episodes)
 3.  Springfield! Springfield! (episode scripts): [Springfield Springfield - Bob's Burgers scripts](https://www.springfieldspringfield.co.uk/episode_scripts.php?tv-show=bobs-burgers)
+
+# Folder Structure
+bobsburgersR/ ├── data-raw/ │ ├── IMDb_Bobs_Burgers_Data.csv │ ├── IMDb_Wikipedia_Bobs_Burgers_Data_Clean.csv │ ├── Transcript_Bobs_Burgers_Data.csv │ ├── Wikipedia_Bobs_Burgers_Data.csv │ ├── scraping/ │ │ ├── 01_imdb_web_scrape.R │ │ ├── 02_wikipedia_web_scrape.R │ │ ├── 03_springfieldspringfield_scripts_web_scrape.R │ │ ├── 04_data_cleaning_imdb_wikipedia.R │ │ └── 04_data_cleaning_transcript.R ├── data/ │ ├── imdb_wikipedia_data.rda │ └── transcript_data.rda ├── img/ │ └── bobsburgersR.png ├── man/ │ ├── imdb_wikipedia_data.Rd │ └── transcript_data.Rd ├── R/ │ └── data_documentation.R ├── LICENSE ├── LICENSE.md ├── README.md ├── README.Rmd ├── NAMESPACE ├── NEWS.md ├── .gitignore ├── renv/ │ ├── activate.R │ └── settings.json ├── bobsburgersR.Rproj └── README_files/ └── figure-gfm/ ├── unnamed-chunk-3-1.png └── unnamed-chunk-4-1.png
 

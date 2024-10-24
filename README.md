@@ -3,6 +3,10 @@
 
 # bobsburgersR <img src="img/bobsburgersR.png" align="right" height="240"/>
 
+[![R-CMD-check](https://github.com/poncest/bobsburgersR/workflows/R-CMD-check/badge.svg)](https://github.com/poncest/bobsburgersR/actions)
+![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 A collection of datasets on the [Bob’s
 Burgers](https://www.fox.com/bobs-burgers/) American animated sitcom.
 This package aims to provide easy access to data about the show,
@@ -139,18 +143,13 @@ head(transcript_data)
 heatmap_data <- transcript_data |>
   filter(!is.na(dialogue)) |>  
   group_by(season, episode) |>
-  summarize(total_lines = n()) |> 
-  ungroup()
-```
+  summarize(total_lines = n(), .groups = "drop") 
 
-    ## `summarise()` has grouped output by 'season'. You can override using the
-    ## `.groups` argument.
-
-``` r
 # Heatmap: Lines Spoken by Season and Episode
 ggplot(heatmap_data, aes(x = as.factor(episode), y = as.factor(season), fill = total_lines)) +
   geom_tile(color = "white") +
   scale_fill_gradient(low = "lightyellow", high = "red") +
+  coord_equal() +
   labs(
     title = "Lines Spoken by Season and Episode",
     x = "Episode",
@@ -187,3 +186,20 @@ repository](https://github.com/poncest/bobsburgersR/issues).
 3.  Springfield! Springfield! (episode scripts): [Springfield
     Springfield - Bob’s Burgers
     scripts](https://www.springfieldspringfield.co.uk/episode_scripts.php?tv-show=bobs-burgers)
+
+# Folder Structure
+
+bobsburgersR/ ├── data-raw/ │ ├── IMDb_Bobs_Burgers_Data.csv │ ├──
+IMDb_Wikipedia_Bobs_Burgers_Data_Clean.csv │ ├──
+Transcript_Bobs_Burgers_Data.csv │ ├── Wikipedia_Bobs_Burgers_Data.csv │
+├── scraping/ │ │ ├── 01_imdb_web_scrape.R │ │ ├──
+02_wikipedia_web_scrape.R │ │ ├──
+03_springfieldspringfield_scripts_web_scrape.R │ │ ├──
+04_data_cleaning_imdb_wikipedia.R │ │ └── 04_data_cleaning_transcript.R
+├── data/ │ ├── imdb_wikipedia_data.rda │ └── transcript_data.rda ├──
+img/ │ └── bobsburgersR.png ├── man/ │ ├── imdb_wikipedia_data.Rd │ └──
+transcript_data.Rd ├── R/ │ └── data_documentation.R ├── LICENSE ├──
+LICENSE.md ├── README.md ├── README.Rmd ├── NAMESPACE ├── NEWS.md ├──
+.gitignore ├── renv/ │ ├── activate.R │ └── settings.json ├──
+bobsburgersR.Rproj └── README_files/ └── figure-gfm/ ├──
+unnamed-chunk-3-1.png └── unnamed-chunk-4-1.png
