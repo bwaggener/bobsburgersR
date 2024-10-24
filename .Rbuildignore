@@ -7,3 +7,6 @@
 ^README\.Rmd$
 ^.github$
 ^img$
+^scrap\.R$
+^README_files/
+
