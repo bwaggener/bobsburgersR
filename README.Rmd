@@ -131,55 +131,6 @@ ggplot(heatmap_data, aes(x = as.factor(episode), y = as.factor(season), fill = t
   theme_minimal()
 ```
 
-# Folder Structure 
-
-The main folders in this package include:
-
-- `data-raw/`: Contains raw data files (`.csv`) and R scripts used for scraping and cleaning the data.
-- `data/`: Contains processed `.rda` files for easy access to the cleaned data.
-- `R/`: Contains R functions (`data_documentation.R`) that users can interact with.
-- `img/`: Contains images, including the package logo.
-- `man/`: Contains the documentation files (`.Rd`) for the package's data objects.
-
-Here's the detailed structure of the package:
-
-```
-bobsburgersR/
-├── data-raw/
-│   ├── IMDb_Bobs_Burgers_Data.csv
-│   ├── IMDb_Wikipedia_Bobs_Burgers_Data_Clean.csv
-│   ├── Transcript_Bobs_Burgers_Data.csv
-│   ├── Wikipedia_Bobs_Burgers_Data.csv
-│   └── scraping/
-│       ├── 01_imdb_web_scrape.R
-│       ├── 02_wikipedia_web_scrape.R
-│       ├── 03_springfieldspringfield_scripts_web_scrape.R
-│       ├── 04_data_cleaning_imdb_wikipedia.R
-│       └── 04_data_cleaning_transcript.R
-├── data/
-│   ├── imdb_wikipedia_data.rda
-│   └── transcript_data.rda
-├── img/
-│   └── bobsburgersR.png
-├── man/
-│   ├── imdb_wikipedia_data.Rd
-│   └── transcript_data.Rd
-├── R/
-│   └── data_documentation.R
-├── LICENSE
-├── LICENSE.md
-├── README.md
-├── README.Rmd
-├── NAMESPACE
-├── NEWS.md
-├── .gitignore
-├── renv/
-│   ├── activate.R
-│   └── settings.json
-├── bobsburgersR.Rproj
-
-```
-
 # Question/Contribute
 
 If there is any data you would like to include or if you have suggestions, please get in touch. You can contact me at [steven_ponce\@yahoo.com](mailto:steven_ponce@yahoo.com) or open an issue on the [GitHub repository](https://github.com/poncest/bobsburgersR/issues).

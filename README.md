@@ -161,15 +161,6 @@ ggplot(heatmap_data, aes(x = as.factor(episode), y = as.factor(season), fill = t
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-# Folder
-
-The main folders in this package include:
-
-- `data/`: Contains processed `.rda` files for easy access.
-- `data-raw/`: Contains raw data and scripts used for processing the
-  data.
-- `R/`: Contains R functions that users can interact with.
-
 # Question/Contribute
 
 If there is any data you would like to include or if you have
