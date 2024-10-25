@@ -5,7 +5,7 @@
 \alias{transcript_data}
 \title{Transcript Data from Bob's Burgers}
 \format{
-A data frame with 181,031 rows and 7 variables:
+A data frame with 181,031 rows and 6 variables:
 \describe{
 \item{season}{The season number in which the episode is part of the Bob's Burgers TV show.}
 \item{episode}{The episode number within the specific season of Bob's Burgers.}

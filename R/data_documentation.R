@@ -2,7 +2,7 @@
 #'
 #' A dataset containing information about Bob's Burgers episodes from IMDb and Wikipedia.
 #'
-#' @format A data frame with 275 rows and 12 variables:
+#' @format A data frame with 275 rows and 11 variables:
 #' \describe{
 #'   \item{episode_overall}{The overall episode number in the entire Bob's Burgers series.}
 #'   \item{imdb_aired_date}{The date the episode originally aired, according to IMDb.}
@@ -19,11 +19,12 @@
 #' @source IMDb and Wikipedia
 "imdb_wikipedia_data"
 
+
 #' Transcript Data from Bob's Burgers
 #'
 #' A dataset containing the transcripts of Bob's Burgers episodes.
 #'
-#' @format A data frame with 181,031 rows and 7 variables:
+#' @format A data frame with 181,031 rows and 6 variables:
 #' \describe{
 #'   \item{season}{The season number in which the episode is part of the Bob's Burgers TV show.}
 #'   \item{episode}{The episode number within the specific season of Bob's Burgers.}
@@ -34,3 +35,4 @@
 #' }
 #' @source Springfield! Springfield!
 "transcript_data"
+

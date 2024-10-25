@@ -11,12 +11,9 @@ suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(tidyr))
 ```
 
-
 # bobsburgersR <img src="img/bobsburgersR.png" align="right" height="240"/>
 
-[![R-CMD-check](https://github.com/poncest/bobsburgersR/workflows/R-CMD-check/badge.svg)](https://github.com/poncest/bobsburgersR/actions)
-![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+[![R-CMD-check](https://github.com/poncest/bobsburgersR/workflows/R-CMD-check/badge.svg)](https://github.com/poncest/bobsburgersR/actions) ![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 A collection of datasets on the [Bob's Burgers](https://www.fox.com/bobs-burgers/) American animated sitcom. This package aims to provide easy access to data about the show, allowing for analysis of trends in ratings, character dialogue, and more. Included in the package are 2 datasets detailed below for seasons 1-14.
 
@@ -35,7 +32,6 @@ devtools::install_github("poncest/bobsburgersR")
 
 | Column Name | Data Type | Description |
 |-------------------|------------------|-----------------------------------|
-| `x1` | `dbl` | Row index or unique identifier for each episode in the dataset. |
 | `episode_overall` | `dbl` | The overall episode number in the entire Bob's Burgers series (starting from episode 1). |
 | `imdb_aired_date` | `date` | The date the episode originally aired, according to IMDb. Format: YYYY-MM-DD. |
 | `year` | `dbl` | The year the episode aired. |
@@ -50,19 +46,14 @@ devtools::install_github("poncest/bobsburgersR")
 
 ### Notes:
 
--   `x1` is primarily an internal index and may not be required for analysis.
-
 -   **IMDb vs. Wikipedia**: `imdb_aired_date`, `imdb_title`, `rating`, and `synopsis` are from IMDb, while `wikipedia_directed_by`, `wikipedia_written_by`, and `wikipedia_viewers` are from Wikipedia. Both sources provide complementary data for the same episodes.
 
 -   Viewer numbers (`wikipedia_viewers`) represent the viewership in millions, so 9.38 means 9.38 million viewers.
-
-
 
 ## `transcript_data`
 
 | Column Name | Data Type | Description |
 |-------------------|-------------------|----------------------------------|
-| `x1` | `dbl` | Row index or unique identifier for each line of dialogue in the dataset. |
 | `season` | `dbl` | The season number in which the episode is part of the Bob's Burgers TV show. |
 | `episode` | `dbl` | The episode number within the specific season of Bob's Burgers. |
 | `title` | `chr` | The title of the episode in which the dialogue line appears. |
@@ -74,9 +65,7 @@ devtools::install_github("poncest/bobsburgersR")
 
 ### Notes:
 
--   `x1` is primarily an internal index and may not be required for analysis.
 -   The `raw_text` column contains the unprocessed version of the dialogue, while `dialogue` is the cleaned-up version.
-
 
 # Examples
 
@@ -140,4 +129,3 @@ If there is any data you would like to include or if you have suggestions, pleas
 1.  IMDb: [Episodes List](https://www.imdb.com/title/tt1561755/episodes/?season=1)
 2.  Wikipedia (episodes): [List of Bob's Burgers episodes](https://en.wikipedia.org/wiki/List_of_Bob%27s_Burgers_episodes#Episodes)
 3.  Springfield! Springfield! (episode scripts): [Springfield Springfield - Bob's Burgers scripts](https://www.springfieldspringfield.co.uk/episode_scripts.php?tv-show=bobs-burgers)
-

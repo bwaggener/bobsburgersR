@@ -8,7 +8,7 @@
 ## Date:      2024-09-13
 
 
-## 1. LOAD PACKAGES & SETUP ---- 
+## 1. LOAD PACKAGES & SETUP ----
 pacman::p_load(
   tidyverse,   # Easily Install and Load the 'Tidyverse'
   ggtext,      # Improved Text Rendering Support for 'ggplot2'
@@ -23,14 +23,15 @@ pacman::p_load(
 
 
 
-## 2. READ IN THE DATA ----  
+## 2. READ IN THE DATA ----
 
-imdb_data <- read_csv('00_data/01_raw_data/IMDb_Bobs_Burgers_Data.csv') |> 
-  clean_names() |> 
+imdb_data <- read_csv('data-raw/IMDb_Bobs_Burgers_Data.csv') |>
+  clean_names() |>
   glimpse()
 
-wikipedia_data <- read_csv('00_data/01_raw_data/Wikipedia_Bobs_Burgers_Data.csv') |> 
-  clean_names() |> 
+
+wikipedia_data <- read_csv('data-raw/Wikipedia_Bobs_Burgers_Data.csv') |>
+  clean_names() |>
   glimpse()
 
 
@@ -112,9 +113,9 @@ combined_data_clean <- combined_data_clean |>
     year = year.x,
     season = season.x,
     episode = episode.x
-  ) |> 
+  ) |>
   # Drop unnecessary or duplicate columns
-  select(-x1.x, -episode_overall.y) 
+  select(-x1.x, -episode_overall.y)
 
 # Glimpse the final cleaned data
 glimpse(combined_data_clean)
@@ -122,21 +123,21 @@ glimpse(combined_data_clean)
 
 # Step 9: Remove Temporary Datasets
 # Remove temporary or intermediate datasets
-rm(combined_data_fuzzy, combined_data_exact, mismatch_titles, duplicate_matches, 
+rm(combined_data_fuzzy, combined_data_exact, mismatch_titles, duplicate_matches,
    missing_in_wikipedia, imdb_data, wikipedia_data)
 
 
 
 ## 6. SAVE ----
-write.csv(
+write_csv(
   combined_data_clean,
-  "00_data/02_clean_data/IMDb_Wikipedia_Bobs_Burgers_Data_Clean.csv"
+  "data-raw/IMDb_Wikipedia_Bobs_Burgers_Data_Clean.csv"
 )
 
 
 
-## 7. SESSION INFO ----  
-sessioninfo::session_info(include_base = TRUE) 
+## 7. SESSION INFO ----
+sessioninfo::session_info(include_base = TRUE)
 
 # ─ Session info ──────────────────────────────────────────────────────────────────────
 # setting  value
@@ -151,7 +152,7 @@ sessioninfo::session_info(include_base = TRUE)
 # date     2024-09-13
 # rstudio  2024.04.2+764 Chocolate Cosmos (desktop)
 # pandoc   NA
-# 
+#
 # ─ Packages ──────────────────────────────────────────────────────────────────────────
 # ! package     * version date (UTC) lib source
 # V base        * 4.4.1   2024-04-24 [2] local (on disk 4.4.0)
@@ -168,14 +169,14 @@ sessioninfo::session_info(include_base = TRUE)
 # P stats       * 4.4.0   2024-04-24 [?] local
 # P tools         4.4.0   2024-04-24 [?] local
 # P utils       * 4.4.0   2024-04-24 [?] local
-# 
+#
 # [1] C:/Users/poncest/OneDrive - Bristol Myers Squibb/RStudio/Bobs_Burguers/renv/library/windows/R-4.4/x86_64-w64-mingw32
 # [2] C:/Users/poncest/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.4/x86_64-w64-mingw32/d6ee0ff8
-# 
+#
 # V ── Loaded and on-disk version mismatch.
 # P ── Loaded and on-disk path mismatch.
-# 
+#
 # ─────────────────────────────────────────────────────────────────────────────────────
-# > 
-# > 
+# >
+# >
 

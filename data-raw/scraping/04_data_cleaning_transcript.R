@@ -37,7 +37,7 @@ transcript_clean <- transcript  |>
 
 
 ## 4. SAVE ----
-write.csv(
+write_csv(
   transcript_clean,
   "data-raw/Transcript_Bobs_Burgers_Data_Clean.csv"
 )

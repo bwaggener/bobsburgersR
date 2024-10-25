@@ -5,7 +5,7 @@
 \alias{imdb_wikipedia_data}
 \title{IMDb Wikipedia Bob's Burgers Data}
 \format{
-A data frame with 275 rows and 12 variables:
+A data frame with 275 rows and 11 variables:
 \describe{
 \item{episode_overall}{The overall episode number in the entire Bob's Burgers series.}
 \item{imdb_aired_date}{The date the episode originally aired, according to IMDb.}
