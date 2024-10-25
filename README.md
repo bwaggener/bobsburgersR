@@ -29,7 +29,6 @@ devtools::install_github("poncest/bobsburgersR")
 
 | Column Name | Data Type | Description |
 |----|----|----|
-| `x1` | `dbl` | Row index or unique identifier for each episode in the dataset. |
 | `episode_overall` | `dbl` | The overall episode number in the entire Bob’s Burgers series (starting from episode 1). |
 | `imdb_aired_date` | `date` | The date the episode originally aired, according to IMDb. Format: YYYY-MM-DD. |
 | `year` | `dbl` | The year the episode aired. |
@@ -44,9 +43,6 @@ devtools::install_github("poncest/bobsburgersR")
 
 ### Notes:
 
-- `x1` is primarily an internal index and may not be required for
-  analysis.
-
 - **IMDb vs. Wikipedia**: `imdb_aired_date`, `imdb_title`, `rating`, and
   `synopsis` are from IMDb, while `wikipedia_directed_by`,
   `wikipedia_written_by`, and `wikipedia_viewers` are from Wikipedia.
@@ -59,7 +55,6 @@ devtools::install_github("poncest/bobsburgersR")
 
 | Column Name | Data Type | Description |
 |----|----|----|
-| `x1` | `dbl` | Row index or unique identifier for each line of dialogue in the dataset. |
 | `season` | `dbl` | The season number in which the episode is part of the Bob’s Burgers TV show. |
 | `episode` | `dbl` | The episode number within the specific season of Bob’s Burgers. |
 | `title` | `chr` | The title of the episode in which the dialogue line appears. |
@@ -71,8 +66,6 @@ devtools::install_github("poncest/bobsburgersR")
 
 ### Notes:
 
-- `x1` is primarily an internal index and may not be required for
-  analysis.
 - The `raw_text` column contains the unprocessed version of the
   dialogue, while `dialogue` is the cleaned-up version.
 
@@ -88,17 +81,16 @@ data("imdb_wikipedia_data")
 head(imdb_wikipedia_data)
 ```
 
-    ## # A tibble: 6 × 12
-    ##    ...1 episode_overall imdb_aired_date  year season episode imdb_title   rating
-    ##   <dbl>           <dbl> <date>          <dbl>  <dbl>   <dbl> <chr>         <dbl>
-    ## 1     1               1 2011-01-08       2011      1       1 Human Flesh     7.7
-    ## 2     2               2 2011-01-15       2011      1       2 Crawl Space     8.1
-    ## 3     3               3 2011-01-22       2011      1       3 Sacred Cow      7.5
-    ## 4     4               4 2011-02-12       2011      1       4 Sexy Dance …    7.4
-    ## 5     5               5 2011-02-19       2011      1       5 Hamburger D…    7.5
-    ## 6     6               6 2011-03-05       2011      1       6 Sheesh! Cab…    8.3
-    ## # ℹ 4 more variables: synopsis <chr>, wikipedia_directed_by <chr>,
-    ## #   wikipedia_written_by <chr>, wikipedia_viewers <dbl>
+    ## # A tibble: 6 × 11
+    ##   episode_overall imdb_aired_date  year season episode imdb_title               rating synopsis      wikipedia_directed_by
+    ##             <dbl> <date>          <dbl>  <dbl>   <dbl> <chr>                     <dbl> <chr>         <chr>                
+    ## 1               1 2011-01-08       2011      1       1 Human Flesh                 7.7 On top of wa… Anthony Chun         
+    ## 2               2 2011-01-15       2011      1       2 Crawl Space                 8.1 His in-laws … Kyounghee Lim        
+    ## 3               3 2011-01-22       2011      1       3 Sacred Cow                  7.5 A filmmaker … Jennifer Coyle       
+    ## 4               4 2011-02-12       2011      1       4 Sexy Dance Fighting         7.4 When Tina de… Anthony Chun         
+    ## 5               5 2011-02-19       2011      1       5 Hamburger Dinner Theater    7.5 Linda is dyi… Wes Archer           
+    ## 6               6 2011-03-05       2011      1       6 Sheesh! Cab, Bob?           8.3 Bob takes a … Jennifer Coyle       
+    ## # ℹ 2 more variables: wikipedia_written_by <chr>, wikipedia_viewers <dbl>
 
 ``` r
 # Box Plot with Jitter: IMDb Ratings by Season
@@ -126,15 +118,15 @@ data("transcript_data")
 head(transcript_data)
 ```
 
-    ## # A tibble: 6 × 7
-    ##    ...1 season episode title        line raw_text                       dialogue
-    ##   <dbl>  <dbl>   <dbl> <chr>       <dbl> <chr>                          <chr>   
-    ## 1     1      1       1 Human Flesh     1 <NA>                           <NA>    
-    ## 2     2      1       1 Human Flesh     2 <NA>                           <NA>    
-    ## 3     3      1       1 Human Flesh     3 <NA>                           <NA>    
-    ## 4     4      1       1 Human Flesh     4 Listen, pep talk.              Listen,…
-    ## 5     5      1       1 Human Flesh     5 Big day today.                 Big day…
-    ## 6     6      1       1 Human Flesh     6 It's our grand re-re-re-openi… It's ou…
+    ## # A tibble: 6 × 6
+    ##   season episode title        line raw_text                         dialogue                        
+    ##    <dbl>   <dbl> <chr>       <dbl> <chr>                            <chr>                           
+    ## 1      1       1 Human Flesh     1 <NA>                             <NA>                            
+    ## 2      1       1 Human Flesh     2 <NA>                             <NA>                            
+    ## 3      1       1 Human Flesh     3 <NA>                             <NA>                            
+    ## 4      1       1 Human Flesh     4 Listen, pep talk.                Listen, pep talk.               
+    ## 5      1       1 Human Flesh     5 Big day today.                   Big day today.                  
+    ## 6      1       1 Human Flesh     6 It's our grand re-re-re-opening. It's our grand re-re-re-opening.
 
 ``` r
 ## Heatmap: Lines Spoken by Season and Episode
@@ -177,4 +169,3 @@ repository](https://github.com/poncest/bobsburgersR/issues).
 3.  Springfield! Springfield! (episode scripts): [Springfield
     Springfield - Bob’s Burgers
     scripts](https://www.springfieldspringfield.co.uk/episode_scripts.php?tv-show=bobs-burgers)
-
