@@ -1,0 +1,64 @@
+---
+title: "BobBurg"
+output: html_document
+---
+
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(ggplot2)
+
+```
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2024-11-19')
+episode_metrics <- tuesdata$episode_metrics
+
+```
+What season has the most questions?
+```{r question}
+ggplot(episode_metrics, aes(season, question_ratio)) +
+  geom_col() +
+  labs(title = "Season with the most questions",
+       x = "Season",
+       y = "Number of questions")
+```
+
+correlation of questions and exlamations
+```{r corr}
+ggplot(episode_metrics, aes(question_ratio, exclamation_ratio)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Correlation of questions and exclamations",
+       x = "Number of questions",
+       y = "Number of exclamations")+
+  theme_classic()
+```
+dialogue density
+```{r dialogue density}
+ggplot(episode_metrics, aes(x = season, y = dialogue_density)) +
+  geom_point() +
+  labs(title = "Dialogue density",
+       x = "Season",
+       y = "Dialogue density")
+```
+
+I predict that an absolute value of sentiment variance will be positively correlated with ratio of exclamations
+```{r AFINN-exclam}
+episode_metrics <- episode_metrics %>%
+  mutate(AFINN_abs = abs(sentiment_variance))
+
+ggplot(episode_metrics, aes(AFINN_abs, exclamation_ratio)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Correlation of AFINN and exclamations",
+       x = "AFINN",
+       y = "Number of exclamations")+
+  theme_classic()
+```
+
+because "Linn" is annoying, i have to check if this is significant
+```{r Linn}
+cor.test(episode_metrics$AFINN_abs, episode_metrics$exclamation_ratio, method = "pearson")
+
+```
